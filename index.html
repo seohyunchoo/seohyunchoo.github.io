@@ -89,6 +89,10 @@
   #content {
     padding-top: 30px;
   }
+
+.highlight {
+  outline: 3px solid red;
+}
 </style>
 <body>
 <div id="info">
@@ -308,6 +312,7 @@ if (!('webkitSpeechRecognition' in window)) {
       var words = final_transcript.split(" ");
       if (words.length > 1) {
         if (words[0].toLowerCase() === "click"){
+          $(".highlight").removeClass('highligh[t');
           var thingtoclick = words.slice(1, words.length).join(" ");
           console.log(thingtoclick);
           clickthings(thingtoclick);
@@ -451,12 +456,14 @@ function clickthings(name) {
   $("input,a").each(function() {
     if ($(this)[0].tagName === "A") {
       if ($(this)[0].text.toLowerCase() === name.toLowerCase()) {
+        $(this)[0].addClass('highlight');
         simulateClick($(this)[0])
       }
     }
     if ($(this)[0].tagName === "INPUT") {
       console.log($(this)[0].value.toLowerCase());
       if ($(this)[0].value.toLowerCase() === name.toLowerCase()) {
+        $(this).addClass('highlight');
         simulateClick($(this)[0]);
       }
     }
