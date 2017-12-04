@@ -324,10 +324,14 @@ if (!('webkitSpeechRecognition' in window)) {
           var upordown = words[1].toLowerCase();
           console.log(upordown);
           scroll(upordown);
+        } else {
+          console.log("not a command");
+          handleError()
         }
-        console.log("not a command");
+      } else {
+        console.log("not long enough");
+        handleError()
       }
-      console.log("not long enough");
     }
   };
   recognition.onresult = function(event) {
@@ -498,5 +502,9 @@ function enterText(text) {
   if (input != null) {
     $(input).val(text);
   }
+}
+
+function handleError() {
+  alert("Please enter in a valid command.");
 }
 </script>
