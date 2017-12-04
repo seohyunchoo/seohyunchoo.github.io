@@ -311,7 +311,7 @@ if (!('webkitSpeechRecognition' in window)) {
           console.log(thingtoclick);
         } else if (words[0].toLowerCase() === "enter") {
           console.log("enter");
-          var thingtoenter = words.slice(1,words.lenth).join(" ");\
+          var thingtoenter = words.slice(1,words.lenth).join(" ");
           console.log(thingtoenter);
         } else if (words[0].toLowerCase() == "scroll") {
           console.log("scroll");
@@ -426,6 +426,7 @@ function showButtons(style) {
 
 <script>
 $(document).ready(function() {
+  console.log("ready!");
   $("#thebutton").click(function() {
     alert("I was clicked!");
   })
