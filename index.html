@@ -90,6 +90,7 @@
     padding-top: 30px;
   }
 </style>
+<body>
 <div id="info">
   <p id="info_start">Click on the microphone icon and begin speaking.</p>
   <p id="info_speak_now">Speak now.</p>
@@ -159,8 +160,9 @@
     <input type="text" value="whatever">
   </p>
 
-  <img src="http://theoutpostbaltimore.com/wp-content/uploads/2017/08/Outpost-Rabbit.jpg" alt="no alt because I'm a jerk">
+  <img src="https://theoutpostbaltimore.com/wp-content/uploads/2017/08/Outpost-Rabbit.jpg" alt="no alt because I'm a jerk">
 </div>
+</body>
 <script>
 var langs =
 [['Afrikaans',       ['af-ZA']],
@@ -306,17 +308,15 @@ if (!('webkitSpeechRecognition' in window)) {
       var words = final_transcript.split(" ");
       if (words.length > 1) {
         if (words[0].toLowerCase() === "click"){
-          console.log("click");
           var thingtoclick = words.slice(1, words.length).join(" ");
           console.log(thingtoclick);
         } else if (words[0].toLowerCase() === "enter") {
-          console.log("enter");
           var thingtoenter = words.slice(1,words.lenth).join(" ");
           console.log(thingtoenter);
         } else if (words[0].toLowerCase() == "scroll") {
-          console.log("scroll");
           var upordown = words[1].toLowerCase();
           console.log(upordown);
+          scroll(upordown);
         }
         console.log("not a command");
       }
@@ -422,15 +422,28 @@ function showButtons(style) {
   copy_info.style.display = 'none';
   email_info.style.display = 'none';
 }
-</script>
 
-<script>
 $(document).ready(function() {
   console.log("ready!");
   $("#thebutton").click(function() {
     alert("I was clicked!");
   })
 })
+
+function scroll(upordown) {
+  console.log("let's scroll!")
+  if (upordown === "up") {
+    $('html, body').animate({
+        scrollTop: $(document).scrollTop()-150
+    }, 1000);
+  }
+  if (upordown === "down") {
+    $('html, body').animate({
+        scrollTop: $(document).scrollTop()+150
+    }, 1000);
+  }
+}
+
 
 // function clickthings(name) {
 //   $(“input,a,button”).each(function() {
