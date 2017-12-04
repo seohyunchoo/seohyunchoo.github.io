@@ -312,7 +312,7 @@ if (!('webkitSpeechRecognition' in window)) {
       var words = final_transcript.split(" ");
       if (words.length > 1) {
         if (words[0].toLowerCase() === "click"){
-          $(".highlight").removeClass('highligh[t');
+          $(".highlight").removeClass('highlight');
           var thingtoclick = words.slice(1, words.length).join(" ");
           console.log(thingtoclick);
           clickthings(thingtoclick);
@@ -431,6 +431,7 @@ function showButtons(style) {
 
 $(document).ready(function() {
   console.log("ready!");
+  // clickthings("Carnegie Mellon University");
   $("#thebutton").click(function() {
     alert("I was clicked!");
   })
@@ -456,7 +457,7 @@ function clickthings(name) {
   $("input,a").each(function() {
     if ($(this)[0].tagName === "A") {
       if ($(this)[0].text.toLowerCase() === name.toLowerCase()) {
-        $(this)[0].addClass('highlight');
+        $(this).addClass('highlight');
         simulateClick($(this)[0])
       }
     }
