@@ -144,11 +144,15 @@
 <div id="sep"> </div>
 <div id="content">
   <p>
-  <input id="thebutton" type="button" value="I'm a button">
+  <input id="thebutton" type="button" value="button">
   </p>
 
   <p>
   <a href="http://www.cmu.edu">Carnegie Mellon University</a>
+  </p>
+
+  <p>
+  <a href="https://www.hcii.cmu.edu/">Human Computer Interaction</a>
   </p>
 
   <p>
@@ -285,7 +289,7 @@ if (!('webkitSpeechRecognition' in window)) {
       showInfo('info_start');
       return;
     }
-    showInfo('');
+    // showInfo('');
     if (window.getSelection) {
       window.getSelection().removeAllRanges();
       var range = document.createRange();
@@ -396,4 +400,34 @@ function showButtons(style) {
   copy_info.style.display = 'none';
   email_info.style.display = 'none';
 }
+</script>
+
+<script>
+$(document).ready(function() {
+  $("#thebutton").click(function() {
+    alert("I was clicked!");
+  })
+})
+
+// function clickthings(name) {
+//   $(“input,a,button”).each(function() {
+//     // is this the element that should be clicked?
+//     if (){
+
+//     }
+//   });
+// }
+
+// function simulateClick(element) {
+//   if (!element) return;
+//   var dispatchEvent = function (elt, name) {
+//     var clickEvent = document.createEvent('MouseEvents');
+//     clickEvent.initEvent(name, true, true);
+//     elt.dispatchEvent(clickEvent);
+//   };
+//   dispatchEvent(element, 'mouseover');
+//   dispatchEvent(element, 'mousedown');
+//   dispatchEvent(element, 'click');
+//   dispatchEvent(element, 'mouseup');
+// };
 </script>
