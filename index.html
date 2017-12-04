@@ -318,7 +318,9 @@ if (!('webkitSpeechRecognition' in window)) {
           var upordown = words[1].toLowerCase();
           console.log(upordown);
         }
+        console.log("not a command");
       }
+      console.log("not long enough");
     }
   };
   recognition.onresult = function(event) {
