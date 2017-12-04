@@ -319,6 +319,7 @@ if (!('webkitSpeechRecognition' in window)) {
         } else if (words[0].toLowerCase() === "enter") {
           var thingtoenter = words.slice(1,words.lenth).join(" ");
           console.log(thingtoenter);
+          enterText(thingtoenter);
         } else if (words[0].toLowerCase() == "scroll") {
           var upordown = words[1].toLowerCase();
           console.log(upordown);
@@ -451,6 +452,7 @@ function scroll(upordown) {
   }
 }
 
+var input;
 
 function clickthings(name) {
   console.log("clickable things " + name);
@@ -472,6 +474,12 @@ function clickthings(name) {
 }
 
 function simulateClick(element) {
+  input = null;
+  if ($(element).is("input[type='search'], input[type='text'], textarea")){
+      // console.log("input");
+      input = element;
+  }
+
   console.log("simulateClick")
   console.log(element);
   if (!element) return;
@@ -484,5 +492,11 @@ function simulateClick(element) {
   dispatchEvent(element, 'mousedown');
   dispatchEvent(element, 'click');
   dispatchEvent(element, 'mouseup');
-};
+}
+
+function enterText(text) {
+  if (input != null) {
+    $(input).val(text);
+  }
+}
 </script>
