@@ -79,10 +79,16 @@
     background-color:transparent;
     padding: 0;
   }
+  #sep {
+    width: 100%;
+    height: 30px;
+    border-bottom: 2px solid red;
+  }
+
+  #content {
+    padding-top: 30px;
+  }
 </style>
-<h1 class="center" id="headline">
-  <a href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">
-    Web Speech API</a> Demonstration</h1>
 <div id="info">
   <p id="info_start">Click on the microphone icon and begin speaking.</p>
   <p id="info_speak_now">Speak now.</p>
@@ -132,6 +138,23 @@
     &nbsp;&nbsp;
     <select id="select_dialect"></select>
   </div>
+</div>
+
+<div id="sep"> </div>
+<div id="content">
+  <p>
+  <input id="thebutton" type="button" value="I'm a button">
+  </p>
+
+  <p>
+  <a href="http://www.cmu.edu">Carnegie Mellon University</a>
+  </p>
+
+  <p>
+    <input type="text" value="whatever">
+  </p>
+
+  <img src="http://theoutpostbaltimore.com/wp-content/uploads/2017/08/Outpost-Rabbit.jpg" alt="no alt because I'm a jerk">
 </div>
 <script>
 var langs =
