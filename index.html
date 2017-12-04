@@ -289,7 +289,7 @@ if (!('webkitSpeechRecognition' in window)) {
       showInfo('info_start');
       return;
     }
-    // showInfo('');
+    showInfo('');
     if (window.getSelection) {
       window.getSelection().removeAllRanges();
       var range = document.createRange();
@@ -299,6 +299,26 @@ if (!('webkitSpeechRecognition' in window)) {
     if (create_email) {
       create_email = false;
       createEmail();
+    }
+
+    if (final_transcript) {
+      console.log(final_transcript);
+      var words = final_transcript.split(" ");
+      if (words.length > 1) {
+        if (words[0].toLowerCase() === "click"){
+          console.log("click");
+          var thingtoclick = words.slice(1, words.length).join(" ");
+          console.log(thingtoclick);
+        } else if (words[0].toLowerCase() === "enter") {
+          console.log("enter");
+          var thingtoenter = words.slice(1,words.lenth).join(" ");\
+          console.log(thingtoenter);
+        } else if (words[0].toLowerCase() == "scroll") {
+          console.log("scroll");
+          var upordown = words[1].toLowerCase();
+          console.log(upordown);
+        }
+      }
     }
   };
   recognition.onresult = function(event) {
